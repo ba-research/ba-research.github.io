@@ -36,13 +36,11 @@
         <div class="panel-intro"><div><p class="eyebrow">RECORDED DEMO <span class="pill">NOT LIVE</span></p><h3>See a decision in context</h3></div><p>Public incident reports · recorded Qev outputs · 12 Nov 2026</p></div>
         <div class="capture-alert"><strong>Experimental</strong><span>One reference case exceeded parity tolerance. These recordings are not validated operational decisions.</span></div>
         <div class="record-grid">
-          <label class="select-label" for="record-select">SELECT A CAPTURED SCENARIO</label>
-          <select id="record-select">
-
-            <option value="scada">Alberta pipeline · control room incident</option>
-            <option value="vendor">U.S. finance · payment diversion</option>
-            <option value="support">Cloud support · authentication incident</option>
-          </select>
+          <fieldset class="scenario-picker"><legend>SELECT A CAPTURED SCENARIO</legend>
+            <label class="scenario-option"><input type="radio" name="scenario" value="scada" checked><span><strong>Alberta pipeline</strong><small>Control room incident</small></span></label>
+            <label class="scenario-option"><input type="radio" name="scenario" value="vendor"><span><strong>U.S. finance</strong><small>Payment diversion</small></span></label>
+            <label class="scenario-option"><input type="radio" name="scenario" value="support"><span><strong>Cloud support</strong><small>Authentication incident</small></span></label>
+          </fieldset>
           <article class="record-card" aria-live="polite">
             <div class="record-meta"><span id="record-kind">CHOICE · LOCAL CPU RECORDING</span><span id="record-status">INFERRED · NOT VALIDATED</span></div>
             <h4 id="record-title">Pressure discrepancy / alarm review</h4>
@@ -51,7 +49,7 @@
             <p id="record-context" class="record-context"></p>
             <p class="record-source">Source: <a id="record-source" target="_blank" rel="noopener noreferrer"></a></p>
             <p class="question-label">RECONSTRUCTED PAYLOAD · NOT A CAPTURED REQUEST</p><pre id="record-payload" class="record-payload"></pre>
-            <button id="replay-record" class="replay-button" type="button">Replay recorded result</button><p id="replay-status" class="replay-status" role="status" aria-live="polite">Choose a scenario, then replay its recorded result.</p>
+            <button id="replay-record" class="replay-button" type="button">Run</button><p id="replay-status" class="replay-status" role="status" aria-live="polite">Choose a scenario, then replay its recorded result.</p>
             <div id="record-result" hidden><p class="question-label">RECONSTRUCTED RESPONSE · RECORDED MODEL SCORES</p><pre id="record-response" class="record-payload"></pre><p class="question-label">INTERPRETATION · HIGHEST SCORE FIRST</p><div id="record-output" class="record-output"></div><p id="record-interpreted" class="record-interpreted"></p><p class="score-note">These are recorded raw model scores, not probabilities, live output, or a measure of operational reliability.</p></div>
           </article>
         </div>
@@ -159,12 +157,13 @@ python -m pip install -r local/requirements.txt</textarea></div><p class="local-
     function activate(tab, focus=false) { tabs.forEach(item => { const selected=item===tab; item.setAttribute('aria-selected', selected); item.tabIndex=selected?0:-1; document.getElementById(item.getAttribute('aria-controls')).hidden=!selected; }); if(focus) tab.focus(); }
     tabs.forEach((tab,index) => { tab.addEventListener('click',()=>activate(tab)); tab.addEventListener('keydown',event=>{let next=index; if(event.key==='ArrowRight') next=(index+1)%tabs.length; else if(event.key==='ArrowLeft') next=(index+tabs.length-1)%tabs.length; else if(event.key==='Home') next=0; else if(event.key==='End') next=tabs.length-1; else return; event.preventDefault(); activate(tabs[next],true);}); });
     const capturedScores = {"scada": [1.0478862524032593, -0.72270667552948, -1.3417274951934814], "vendor": [3.9277679920196533, -1.906991720199585, 2.0788276195526123], "support": [1.5260074138641357, -1.3022137880325317, -1.2770092487335205]};
-    const select=document.getElementById('record-select');
+    const scenarios=[...document.querySelectorAll('input[name="scenario"]')];
+    const selectedScenario=()=>document.querySelector('input[name="scenario"]:checked').value;
     let replayGeneration=0;
     const replayDelay = ms => new Promise(resolve => setTimeout(resolve,matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : ms));
     function showRecord(id) { replayGeneration++; document.getElementById('replay-record').disabled=false; const r=records[id]; document.getElementById('record-kind').textContent=r.kind; document.getElementById('record-status').textContent=r.status; document.getElementById('record-title').textContent=r.title; document.getElementById('record-summary').textContent=r.summary; document.getElementById('record-facts').replaceChildren(...caseFacts[id].map(([value,label])=>{const el=document.createElement('div');const strong=document.createElement('b');const small=document.createElement('small');strong.textContent=value;small.textContent=label;el.append(strong,small);return el;})); document.getElementById('record-why').textContent=r.why; document.getElementById('record-context').textContent=r.context; const source=document.getElementById('record-source'); source.textContent=r.source+' ↗'; source.href=r.url; document.getElementById('record-payload').textContent=JSON.stringify({case_id:id,input:r.context,question:r.question,options:r.outputs.map(x=>x.slice(0,x.lastIndexOf(': ')))},null,2); document.getElementById('record-result').hidden=true; document.getElementById('replay-status').textContent='Scenario changed. Replay the recorded result for this case.'; }
     async function replay() {
-      const generation=++replayGeneration, id=select.value, r=records[id], button=document.getElementById('replay-record'), status=document.getElementById('replay-status');
+      const generation=++replayGeneration, id=selectedScenario(), r=records[id], button=document.getElementById('replay-record'), status=document.getElementById('replay-status');
       button.disabled=true; document.getElementById('record-result').hidden=true;
       status.textContent='1 / 3 · Replaying the request presentation — no data is sent.';
       await replayDelay(350); if(generation!==replayGeneration) return;
@@ -177,7 +176,7 @@ python -m pip install -r local/requirements.txt</textarea></div><p class="local-
       document.getElementById('record-interpreted').textContent='Top recorded option: '+ranked[0].option+'. This is a retrospective interpretation of the recorded ranking, not a verified recommendation. '+r.why;
       document.getElementById('record-result').hidden=false;status.textContent='3 / 3 · Replay complete — no request or inference was made.';button.disabled=false;
     }
-    select.addEventListener('change',()=>showRecord(select.value)); document.getElementById('replay-record').addEventListener('click',replay); showRecord(select.value);
+    scenarios.forEach(option=>option.addEventListener('change',()=>showRecord(selectedScenario()))); document.getElementById('replay-record').addEventListener('click',replay); showRecord(selectedScenario());
   </script>
 </body>
 </html>
