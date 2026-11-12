@@ -1,6 +1,6 @@
 # BA Research
 
-Independent AI research from Calgary, Alberta. The website is static and uses no build step or external fonts.
+Independent research from Calgary, Alberta, focused on practical AI deployment. We use LoRA training and real-workload evaluation to develop efficient models for edge, self-hosted, and enterprise use. The website is static and uses no build step or external fonts.
 
 ## Try Qev
 
