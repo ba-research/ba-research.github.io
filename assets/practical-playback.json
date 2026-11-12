@@ -1,0 +1,82 @@
+{
+  "description": "Fictional scenarios; actual local CPU model outputs, not validated decisions.",
+  "recorded_date": "2026-11-12",
+  "runtime": "ONNX Runtime 1.26.0 CPUExecutionProvider; two threads; graph optimizations disabled",
+  "tokenizer_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "decoder_sha256": "cb0425a5a238348b217eda00c330eb84f69c7ffea5dff215d0e6f373f76b0b20",
+  "graph_files": {
+    "decoder.onnx": {
+      "bytes": 4992155,
+      "sha256": "cb0425a5a238348b217eda00c330eb84f69c7ffea5dff215d0e6f373f76b0b20"
+    },
+    "decoder_model_merged_fp16.onnx_data": {
+      "bytes": 1505771520,
+      "sha256": "54f347bfecebce992112371b5db5232a3a2f51c93d1deaa5b4cf41590dd246ae"
+    },
+    "embed_tokens_fp16.onnx": {
+      "bytes": 637,
+      "sha256": "baf83f8cc8d9f0d4f848df26c147864da325d0c833d812d1fca55180f3cc02ac"
+    },
+    "embed_tokens_fp16.onnx_data": {
+      "bytes": 508559360,
+      "sha256": "24375b3c4ceac14cb5a66efa63545eae9ca0f37a6b57ea7a713797784249771b"
+    }
+  },
+  "capture_script_sha256": "8303d8af38623dd60ab4438ed73df13ddb3764e3aac5b0b54d641760e5deced1",
+  "cases": [
+    {
+      "case": {
+        "id": "scada",
+        "state": "Fictional SCADA event, 07:42 MDT: Station AB-17, pump P-204. Discharge pressure transmitter PT-204 reads 410 kPa, while the redundant transmitter reads 620 kPa. The discrepancy alarm has recurred twice in 30 minutes. No leak is confirmed; the field device has not been inspected.",
+        "question": "Which queue should receive this event first?",
+        "kind": "choice",
+        "options": [
+          "Routine maintenance planning",
+          "Operations team for prompt assessment",
+          "Close without review"
+        ]
+      },
+      "logits": [
+        -0.6954275369644165,
+        0.7484146356582642,
+        -0.3815878927707672
+      ]
+    },
+    {
+      "case": {
+        "id": "vendor",
+        "state": "Fictional accounts-payable case: an existing vendor emails a request to change its bank account one day before a CAD 48,000 invoice is due. The request has not been verified using the vendor contact already on file.",
+        "question": "What should happen before the payment details are changed?",
+        "kind": "choice",
+        "options": [
+          "Verify through the existing trusted vendor contact",
+          "Update the account immediately",
+          "Pay to the new account without review"
+        ]
+      },
+      "logits": [
+        2.781008243560791,
+        -2.114466428756714,
+        -2.3458380699157715
+      ]
+    },
+    {
+      "case": {
+        "id": "support",
+        "state": "Fictional U.S. customer support ticket: a business customer reports invoices show duplicate charges after renewing a subscription. No payment-card information is included and no outage is reported.",
+        "question": "Which team should review this ticket first?",
+        "kind": "choice",
+        "options": [
+          "Billing support",
+          "Security incident response",
+          "Close the ticket"
+        ]
+      },
+      "logits": [
+        3.590681791305542,
+        -1.225987434387207,
+        -0.5513522624969482
+      ]
+    }
+  ]
+}

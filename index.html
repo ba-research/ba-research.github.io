@@ -3,80 +3,94 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BA Research builds efficient, practical AI for edge and self-hosted deployment. Explore Qev, our experimental decision model.">
-  <meta name="theme-color" content="#f5f5f0">
-  <title>Qev Decision Playground — BA Research</title>
+  <meta name="description" content="Calgary pragmatic research and LoRA training for efficient edge and self-hosted enterprise deployment, grounded in real workloads.">
+  <meta name="theme-color" content="#f4f3ed">
+  <title>BA Research — Practical AI for real workloads</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#try" aria-label="BA Research home"><img src="assets/ba-research-mark.png" alt="" width="38" height="38"><span>BA Research <i>/</i> Qev</span></a>
-    <a class="colab top-link" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb" target="_blank" rel="noopener">Open in Colab <span aria-hidden="true">↗</span></a>
+    <a class="brand" href="#try" aria-label="BA Research home"><img src="assets/ba-research-mark.png" alt="" width="38" height="38"><span>BA RESEARCH <i>/</i> CALGARY, ALBERTA</span></a>
+    <a class="top-link" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb" target="_blank" rel="noopener">Open notebook in Colab <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="try">
-    <section class="intro">
-      <p class="kicker"><span></span> DECISION PLAYGROUND <span class="version">EXPERIMENTAL</span></p>
-      <h1>A question in.<br><em>A decision out.</em></h1>
-      <p class="lede">BA Research is a Calgary lab advancing practical AI through LoRA training and evaluation for efficient, edge and self-hosted deployment. Explore Qev with real-world scenarios.</p>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> PRACTICAL AI RESEARCH <b>FIELD NOTES 01</b></p>
+        <h1>Try Qev.<br><em>Built for real work.</em></h1>
+        <p class="lede">Calgary-based research and LoRA training for efficient edge and self-hosted enterprise deployment. Real workloads, measured honestly—not benchmark gaming.</p>
+      </div>
+      <div class="hero-stamp" aria-label="Calgary, Alberta"><span>YYC</span><i>·</i><span>AB</span><small>LOCAL BY DESIGN</small></div>
     </section>
 
-    <section class="workspace" aria-label="Qev decision playground">
-      <div class="editor">
-        <div class="editor-head"><span>01 <b>INPUT</b></span><label for="preset">LOAD AN EXAMPLE</label></div>
-        <select id="preset" aria-label="Load an example">
-          <option value="energy">Alberta energy · maintenance triage</option>
-          <option value="vendor">Enterprise · vendor payment</option>
-          <option value="document">General · document routing</option>
-        </select>
-
-        <label class="field-label" for="context">CONTEXT</label>
-        <textarea id="context" rows="4">An Alberta operator reports an intermittent pressure sensor fault at a remote facility. The latest reading is inconsistent and a technician has not inspected it. No leak is confirmed.</textarea>
-
-        <label class="field-label" for="question">QUESTION</label>
-        <input id="question" type="text" value="Which team should review this report first?">
-
-        <div class="field-label choices-label">DECISION TYPE <span>Choose the output shape</span></div>
-        <div class="types" role="group" aria-label="Decision type">
-          <button class="type active" type="button" aria-pressed="true">Choice</button>
-          <button class="type" type="button" aria-pressed="false">Score</button>
-          <button class="type" type="button" aria-pressed="false">Noul</button>
-        </div>
-        <div class="choice-list" aria-label="Candidate choices">
-          <div><span>01</span> Routine maintenance planning</div>
-          <div><span>02</span> Operations team assessment</div>
-          <div><span>03</span> Close without review</div>
-        </div>
-        <button class="run" type="button" disabled aria-describedby="run-status">Run decision <span>→</span></button>
-        <p class="run-status" id="run-status"><span class="status-dot"></span> Browser model unavailable — no inference is run here.</p>
+    <section class="lab" aria-label="Explore Qev research paths">
+      <div class="lab-head"><div><p class="eyebrow">QEV RESEARCH PREVIEW</p><h2>Three ways to explore</h2></div><p class="lab-note">This site does not run inference. Choose a path below.</p></div>
+      <div class="tabs" role="tablist" aria-label="Research modes">
+        <button id="tab-record" class="tab" role="tab" aria-selected="true" aria-controls="panel-record" tabindex="0"> <span>01</span> Recorded results</button>
+        <button id="tab-local" class="tab" role="tab" aria-selected="false" aria-controls="panel-local" tabindex="-1"><span>02</span> Run locally</button>
+        <button id="tab-colab" class="tab" role="tab" aria-selected="false" aria-controls="panel-colab" tabindex="-1"><span>03</span> Google Colab</button>
       </div>
 
-      <aside class="result" aria-label="Decision output status">
-        <div class="result-head"><span>02 <b>OUTPUT</b></span><span class="idle"><i></i> NOT RUN</span></div>
-        <div class="result-empty"><div class="bracket">{ }</div><h2>Your result<br>will appear here.</h2><p>This preview does not generate or predict an answer. Open the notebook to explore Qev with an appropriately provisioned runtime.</p>
-          <a class="colab primary" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb" target="_blank" rel="noopener">Open in Colab <span aria-hidden="true">↗</span></a>
+      <section id="panel-record" class="panel" role="tabpanel" aria-labelledby="tab-record" tabindex="0">
+        <div class="panel-intro"><div><p class="eyebrow">RECORDED DEMO <span class="pill">NOT LIVE</span></p><h3>See a decision in context</h3></div><p>Fictional scenarios · recorded Qev outputs · 12 Nov 2026</p></div>
+        <div class="capture-alert"><strong>Experimental</strong><span>One reference case exceeded parity tolerance. These recordings are not validated operational decisions.</span></div>
+        <div class="record-grid">
+          <label class="select-label" for="record-select">SELECT A CAPTURED SCENARIO</label>
+          <select id="record-select">
+            <optgroup label="Practical scenarios · recorded locally">
+              <option value="scada">Alberta energy · SCADA alarm</option><option value="vendor">Accounts payable · bank change</option><option value="support">U.S. support · billing dispute</option>
+            </optgroup>
+            <optgroup label="No reference · inference recorded only">
+              <option value="routing-current-example">Enterprise · task routing</option><option value="alberta-energy-current-example">Alberta energy · sensor triage</option><option value="alberta-energy-score">Alberta energy · urgency score</option>
+            </optgroup>
+            <option value="score-outage">Score · service outage (reference FAIL)</option>
+          </select>
+          <article class="record-card" aria-live="polite">
+            <div class="record-meta"><span id="record-kind">NOUL · FIXED REFERENCE</span><span id="record-status" class="status-pass">CASE PASS</span></div>
+            <h4 id="record-title">Pressure discrepancy / alarm review</h4>
+            <div id="scada-panel" class="scada-panel" hidden><div class="scada-head"><strong>STATION AB-17 / PUMP P-204</strong><span>SIMULATED EVENT · 07:42 MDT</span></div><div class="scada-readings"><div><small>PT-204 · DISCHARGE</small><b>410 <em>kPa</em></b></div><div><small>REDUNDANT SENSOR</small><b>620 <em>kPa</em></b></div><div><small>DISCREPANCY ALARM</small><b>2 <em>in 30 min</em></b></div></div><p>Unverified field reading · no confirmed leak · operator assessment required</p></div>
+            <p id="record-context" class="record-context"></p>
+            <p class="question-label">RECORDED QUESTION</p><p id="record-question" class="record-question"></p>
+            <p class="question-label">MODEL SCORES · HIGHER INDICATES STRONGER PREFERENCE</p><div id="record-output" class="record-output"></div>
+          </article>
         </div>
-        <div class="result-foot"><span>MODEL</span><strong>Qev · browser runtime not configured</strong></div>
-      </aside>
-    </section>
-    <footer class="notes"><p><strong>Research prototype.</strong> Examples are fictional; outputs, when evaluated elsewhere, need independent validation and qualified human review. Do not use as the sole basis for consequential decisions.</p><a href="https://github.com/ba-research/ba-research.github.io/tree/main/local">Local setup <span aria-hidden="true">↗</span></a></footer>
-  </main>
+        <p class="fineprint">Recorded outputs use fictional inputs and have no independent correctness reference. They are not operational advice; use qualified human review. <a href="assets/practical-playback.json">View recording details</a>.</p>
+      </section>
 
+      <section id="panel-local" class="panel" role="tabpanel" aria-labelledby="tab-local" tabindex="0" hidden>
+        <div class="panel-intro"><div><p class="eyebrow">SELF-HOSTED PATH</p><h3>Bring the model to your workload</h3></div><p>Reproducible evaluation before deployment.</p></div>
+        <div class="local-grid"><div><h4>Run on your machine</h4><ol><li>Install Python and the local dependencies.</li><li>Prepare authorized Qev checkpoint files and the matching Qwen base.</li><li>Start the local playground and open it on your machine.</li></ol><a class="setup-link" href="https://github.com/ba-research/ba-research.github.io/tree/main/local" target="_blank" rel="noopener">Open local setup instructions ↗</a></div><aside class="availability"><span class="availability-dot"></span><strong>Browser download unavailable</strong><p>This site does not yet download model weights or run inference. Local use requires authorized model files and a configured environment.</p></aside></div>
+      </section>
+
+      <section id="panel-colab" class="panel" role="tabpanel" aria-labelledby="tab-colab" tabindex="0" hidden>
+        <div class="panel-intro"><div><p class="eyebrow">HOSTED NOTEBOOK</p><h3>Continue in Google Colab</h3></div><p>Opens the repository notebook directly.</p></div>
+        <div class="colab-grid"><div><h4>Provisioning status</h4><p>The notebook file is present in the linked GitHub repository. A Colab runtime, model access, credentials, GPU availability and dataset are <strong>not provisioned or verified by this page</strong>. Follow the notebook’s setup cells and check access and license terms before proceeding.</p><p>No weights are bundled with this site.</p></div><a class="primary" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb" target="_blank" rel="noopener">Open notebook in Colab <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </section>
+    <footer class="footer"><p><strong>Research prototype.</strong> Fictional scenarios and captured outputs are not validated operational decisions. Never use as the sole basis for consequential or safety-critical action.</p><a href="https://github.com/ba-research/ba-research.github.io/tree/main/local" target="_blank" rel="noopener">Local setup notes ↗</a></footer>
+  </main>
   <script>
-    const examples = {
-      energy: ["An Alberta operator reports an intermittent pressure sensor fault at a remote facility. The latest reading is inconsistent and a technician has not inspected it. No leak is confirmed.", "Which team should review this report first?", ["Routine maintenance planning", "Operations team assessment", "Close without review"]],
-      vendor: ["A fictional vendor invoice has a changed payment account and the requested payment date is today. The change has not been independently verified.", "What should happen before payment?", ["Process on schedule", "Verify the account change", "Cancel the vendor"]],
-      document: ["A fictional incoming document contains a general product question and no account details or urgent issue.", "Which queue should receive the document?", ["Product information", "Billing support", "Security response"]]
+    const records = {
+      "scada": {kind:"CHOICE · LOCAL CPU RECORDING", status:"INFERRED · NOT VALIDATED", title:"Pressure discrepancy / alarm review", context:"Fictional SCADA event, 07:42 MDT: Station AB-17, pump P-204. Discharge pressure transmitter PT-204 reads 410 kPa, while the redundant transmitter reads 620 kPa. The discrepancy alarm has recurred twice in 30 minutes. No leak is confirmed; the field device has not been inspected.", question:"Which queue should receive this event first?", outputs:["Routine maintenance planning: −0.695", "Operations team for prompt assessment: 0.748", "Close without review: −0.382"]},
+      "vendor": {kind:"CHOICE · LOCAL CPU RECORDING", status:"INFERRED · NOT VALIDATED", title:"Vendor payment change", context:"Fictional accounts-payable case: an existing vendor emails a request to change its bank account one day before a CAD 48,000 invoice is due. The request has not been verified using the vendor contact already on file.", question:"What should happen before the payment details are changed?", outputs:["Verify through the existing trusted vendor contact: 2.781", "Update the account immediately: −2.114", "Pay to the new account without review: −2.346"]},
+      "support": {kind:"CHOICE · LOCAL CPU RECORDING", status:"INFERRED · NOT VALIDATED", title:"Duplicate billing ticket", context:"Fictional U.S. customer support ticket: a business customer reports invoices show duplicate charges after renewing a subscription. No payment-card information is included and no outage is reported.", question:"Which team should review this ticket first?", outputs:["Billing support: 3.591", "Security incident response: −1.226", "Close the ticket: −0.551"]},
+      "noul-lamp": {kind:"NOUL · FIXED REFERENCE", status:"CASE PASS", title:"Lamp status", context:"The lamp is on.", question:"Is the lamp on?", outputs:["No: 0.000", "Yes: 5.501"]},
+      "noul-rain": {kind:"NOUL · FIXED REFERENCE", status:"CASE PASS", title:"Rain check", context:"The pavement is dry and the sky is clear.", question:"Is it raining?", outputs:["No: 0.000", "Yes: −2.940"]},
+      "choice-signin": {kind:"CHOICE · FIXED REFERENCE", status:"CASE PASS", title:"Sign-in support", context:"A user cannot sign in after a password reset.", question:"What should support do first?", outputs:["Investigate: 2.798", "Close the ticket: −1.208"]},
+      "choice-data-loss": {kind:"CHOICE · FIXED REFERENCE", status:"CASE PASS", title:"Database recovery", context:"A database migration deleted customer records.", question:"What is the safest next step?", outputs:["Stop writes and restore from a verified backup: 2.263", "Ignore the alert: −0.344"]},
+      "score-typo": {kind:"SCORE · FIXED REFERENCE", status:"CASE PASS", title:"Cosmetic typo", context:"One cosmetic typo is visible.", question:"How severe is this issue?", outputs:["Low: 1.376", "Medium: 1.036", "High: 1.826"]},
+      "score-outage": {kind:"SCORE · FIXED REFERENCE", status:"CASE FAIL", title:"Service outage", context:"All users are unable to access the service.", question:"How severe is this issue?", outputs:["Low: −0.815", "Medium: −1.560", "High: 0.715"]},
+      "routing-current-example": {kind:"CHOICE · NO REFERENCE", status:"INFERRED · NOT VALIDATED", title:"Enterprise task routing", context:"A production deployment is failing after a database migration. Customers cannot complete payments. The change affects a shared authentication interface, and the first attempted fix did not work.", question:"Which model tier should handle this task?", outputs:["T1 routine: −1.641", "T2 standard: −2.180", "T3 high-risk: 0.092"]},
+      "alberta-energy-current-example": {kind:"CHOICE · NO REFERENCE", status:"INFERRED · NOT VALIDATED", title:"Alberta energy sensor triage", context:"An Alberta energy operator reports a recurring pressure sensor fault at a remote facility. The alarm appeared twice today, the latest reading is inconsistent, and no technician has inspected the equipment. There is no confirmed leak.", question:"Which work queue should review this report first?", outputs:["Routine maintenance planning: −0.313", "Operations team for prompt assessment: 1.043", "Close without review: −0.881"]},
+      "alberta-energy-score": {kind:"SCORE · NO REFERENCE", status:"INFERRED · NOT VALIDATED", title:"Alberta energy urgency", context:"An Alberta facility reports an intermittent pressure sensor fault. There is no confirmed leak, but the reading differs from expected values and requires operator review.", question:"How urgently should the report be assessed?", outputs:["Routine review: −0.272", "Prompt operations assessment: 0.519", "Immediate emergency response: −0.396"]}
     };
-    document.getElementById("preset").addEventListener("change", event => {
-      const [context, question, choices] = examples[event.target.value];
-      document.getElementById("context").value = context;
-      document.getElementById("question").value = question;
-      document.querySelectorAll(".choice-list div").forEach((row, i) => row.lastChild.textContent = ` ${choices[i]}`);
-    });
-    document.querySelectorAll(".type").forEach(button => button.addEventListener("click", () => {
-      document.querySelectorAll(".type").forEach(item => { item.classList.toggle("active", item === button); item.setAttribute("aria-pressed", item === button); });
-    }));
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    function activate(tab, focus=false) { tabs.forEach(item => { const selected=item===tab; item.setAttribute('aria-selected', selected); item.tabIndex=selected?0:-1; document.getElementById(item.getAttribute('aria-controls')).hidden=!selected; }); if(focus) tab.focus(); }
+    tabs.forEach((tab,index) => { tab.addEventListener('click',()=>activate(tab)); tab.addEventListener('keydown',event=>{let next=index; if(event.key==='ArrowRight') next=(index+1)%tabs.length; else if(event.key==='ArrowLeft') next=(index+tabs.length-1)%tabs.length; else if(event.key==='Home') next=0; else if(event.key==='End') next=tabs.length-1; else return; event.preventDefault(); activate(tabs[next],true);}); });
+    const select=document.getElementById('record-select');
+    function showRecord(id) { const r=records[id]; document.getElementById('scada-panel').hidden=id!=='scada'; document.getElementById('record-kind').textContent=r.kind; const status=document.getElementById('record-status'); status.textContent=r.status; status.className=r.status==='CASE PASS'?'status-pass':r.status==='CASE FAIL'?'status-fail':'status-neutral'; document.getElementById('record-title').textContent=r.title; document.getElementById('record-context').textContent=r.context; document.getElementById('record-question').textContent=r.question; const output=document.getElementById('record-output'); output.replaceChildren(...r.outputs.map((line,index)=>{const row=document.createElement('div'); row.className='output-row'; const number=document.createElement('span'); number.textContent=String(index+1).padStart(2,'0'); const value=document.createElement('strong'); value.textContent=line; row.append(number,value); return row;})); }
+    select.addEventListener('change',()=>showRecord(select.value)); showRecord(select.value);
   </script>
 </body>
 </html>
