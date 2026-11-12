@@ -25,7 +25,7 @@
     </section>
 
     <section class="lab" aria-label="Explore Qev research paths">
-      <div class="lab-head"><div><p class="eyebrow">QEV RESEARCH PREVIEW</p><h2>Three ways to explore</h2></div><p class="lab-note">This site does not run inference. Choose a path below.</p></div>
+      <div class="lab-head"><div><p class="eyebrow">QEV RESEARCH PREVIEW</p><h2>Three ways to explore</h2></div><p class="lab-note">This site shows recorded results. Local use requires authorized model files.</p></div>
       <div class="tabs" role="tablist" aria-label="Research modes">
         <button id="tab-record" class="tab" role="tab" aria-selected="true" aria-controls="panel-record" tabindex="0"> <span>01</span> Recorded results</button>
         <button id="tab-local" class="tab" role="tab" aria-selected="false" aria-controls="panel-local" tabindex="-1"><span>02</span> Run locally</button>
@@ -33,31 +33,28 @@
       </div>
 
       <section id="panel-record" class="panel" role="tabpanel" aria-labelledby="tab-record" tabindex="0">
-        <div class="panel-intro"><div><p class="eyebrow">RECORDED DEMO <span class="pill">NOT LIVE</span></p><h3>See a decision in context</h3></div><p>Fictional scenarios · recorded Qev outputs · 12 Nov 2026</p></div>
+        <div class="panel-intro"><div><p class="eyebrow">RECORDED DEMO <span class="pill">NOT LIVE</span></p><h3>See a decision in context</h3></div><p>Public incident reports · recorded Qev outputs · 12 Nov 2026</p></div>
         <div class="capture-alert"><strong>Experimental</strong><span>One reference case exceeded parity tolerance. These recordings are not validated operational decisions.</span></div>
         <div class="record-grid">
           <label class="select-label" for="record-select">SELECT A CAPTURED SCENARIO</label>
           <select id="record-select">
-            <optgroup label="Practical scenarios · recorded locally">
-              <option value="scada">Alberta energy · SCADA alarm</option><option value="vendor">Accounts payable · bank change</option><option value="support">U.S. support · billing dispute</option>
-            </optgroup>
-            <optgroup label="No reference · inference recorded only">
-              <option value="routing-current-example">Enterprise · task routing</option><option value="alberta-energy-current-example">Alberta energy · sensor triage</option><option value="alberta-energy-score">Alberta energy · urgency score</option>
-            </optgroup>
-            <option value="score-outage">Score · service outage (reference FAIL)</option>
+
+            <option value="scada">Alberta pipeline · control room incident</option>
+            <option value="vendor">U.S. finance · payment diversion</option>
+            <option value="support">Cloud support · authentication incident</option>
           </select>
           <article class="record-card" aria-live="polite">
-            <div class="record-meta"><span id="record-kind">NOUL · FIXED REFERENCE</span><span id="record-status" class="status-pass">CASE PASS</span></div>
+            <div class="record-meta"><span id="record-kind">CHOICE · LOCAL CPU RECORDING</span><span id="record-status">INFERRED · NOT VALIDATED</span></div>
             <h4 id="record-title">Pressure discrepancy / alarm review</h4>
-            <div id="scada-panel" class="case-visual scada-panel" aria-label="Fictional illustrative SCADA event display" hidden><div class="case-visual-head"><span class="visual-kicker">ILLUSTRATIVE DISPLAY · FICTIONAL DETAILS</span><span class="visual-state"><i></i> REVIEW QUEUED</span></div><div class="scada-head"><strong>STATION AB-17 / PUMP P-204</strong><span>SIMULATED EVENT · 07:42 MDT</span></div><div class="scada-readings"><div><small>PT-204 · DISCHARGE</small><b>410 <em>kPa</em></b></div><div><small>REDUNDANT SENSOR</small><b>620 <em>kPa</em></b></div><div><small>DISCREPANCY ALARM</small><b>2 <em>in 30 min</em></b></div></div><p>Unverified field reading · no confirmed leak · operator assessment required</p></div>
-            <div id="vendor-panel" class="case-visual finance-panel" aria-label="Fictional illustrative accounts payable workflow" hidden><div class="case-visual-head"><span class="visual-kicker">ILLUSTRATIVE WORKFLOW · FICTIONAL DETAILS</span><span class="visual-state"><i></i> VERIFICATION PENDING</span></div><div class="workflow-strip" aria-hidden="true"><span>CHANGE REQUEST</span><b>→</b><span>CALLBACK CHECK</span><b>→</b><span>PAYMENT RELEASE</span></div><div class="case-facts"><div><small>INVOICE</small><strong>CAD 48,000</strong></div><div><small>DUE</small><strong>Tomorrow</strong></div><div><small>CONTROL</small><strong>Known contact</strong></div></div><p>Illustrative process view only. The captured scenario remains the text shown below.</p></div>
-            <div id="support-panel" class="case-visual support-panel" aria-label="Fictional illustrative customer support queue" hidden><div class="case-visual-head"><span class="visual-kicker">ILLUSTRATIVE QUEUE · FICTIONAL DETAILS</span><span class="visual-state"><i></i> BILLING REVIEW</span></div><div class="support-ticket"><span class="ticket-mark" aria-hidden="true">$</span><div><small>SUBSCRIPTION · BILLING</small><strong>Duplicate charge report</strong><span>Business account · U.S. support</span></div><span class="ticket-priority">STANDARD</span></div><div class="ticket-tags"><span>Payment issue</span><span>No outage reported</span><span>No card data included</span></div><p>Illustrative queue treatment only. No additional metadata was part of model input.</p></div>
+            <div class="case-visual" id="case-summary"><div class="case-visual-head"><span class="visual-kicker">PUBLIC RECORD · RETROSPECTIVE</span><span class="visual-state">RESEARCH EXAMPLE</span></div><strong id="record-summary"></strong><div id="record-facts" class="record-facts"></div><p id="record-why"></p></div>
+            <p class="question-label">WHAT THE SOURCE REPORTS</p>
             <p id="record-context" class="record-context"></p>
-            <p class="question-label">RECORDED QUESTION</p><p id="record-question" class="record-question"></p>
-            <p class="question-label">MODEL SCORES · HIGHER INDICATES STRONGER PREFERENCE</p><div id="record-output" class="record-output"></div>
+            <p class="record-source">Source: <a id="record-source" target="_blank" rel="noopener noreferrer"></a></p>
+            <p class="question-label">QEV RESEARCH QUESTION</p><p id="record-question" class="record-question"></p>
+            <p class="question-label">MODEL SCORES · HIGHER INDICATES STRONGER PREFERENCE</p><div id="record-output" class="record-output"></div><p class="score-note">Scores are raw model outputs for these choices, not probabilities or a measure of operational reliability. Other teams may also need to be involved.</p>
           </article>
         </div>
-        <p class="fineprint">Recorded outputs use fictional inputs and have no independent correctness reference. They are not operational advice; use qualified human review. <a href="assets/practical-playback.json">View recording details</a>.</p>
+        <p class="fineprint">Inputs summarize published reports. Questions and options were written for this research demo; outputs have no independent correctness reference. They are not operational advice; use qualified human review. <a href="assets/practical-playback.json">View recording details</a>.</p>
       </section>
 
       <section id="panel-local" class="panel" role="tabpanel" aria-labelledby="tab-local" tabindex="0" hidden>
@@ -70,28 +67,69 @@
         <div class="colab-grid"><div><h4>Provisioning status</h4><p>The notebook file is present in the linked GitHub repository. A Colab runtime, model access, credentials, GPU availability and dataset are <strong>not provisioned or verified by this page</strong>. Follow the notebook’s setup cells and check access and license terms before proceeding.</p><p>No weights are bundled with this site.</p></div><a class="primary" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb" target="_blank" rel="noopener">Open notebook in Colab <span aria-hidden="true">↗</span></a></div>
       </section>
     </section>
-    <footer class="footer"><p><strong>Research prototype.</strong> Fictional scenarios and captured outputs are not validated operational decisions. Never use as the sole basis for consequential or safety-critical action.</p><a href="https://github.com/ba-research/ba-research.github.io/tree/main/local" target="_blank" rel="noopener">Local setup notes ↗</a></footer>
+    <footer class="footer"><p><strong>Research prototype.</strong> Retrospective examples and captured outputs are not validated operational decisions. Never use as the sole basis for consequential or safety-critical action.</p><a href="https://github.com/ba-research/ba-research.github.io/tree/main/local" target="_blank" rel="noopener">Local setup notes ↗</a></footer>
   </main>
   <script>
     const records = {
-      "scada": {kind:"CHOICE · LOCAL CPU RECORDING", status:"INFERRED · NOT VALIDATED", title:"Pressure discrepancy / alarm review", context:"Fictional SCADA event, 07:42 MDT: Station AB-17, pump P-204. Discharge pressure transmitter PT-204 reads 410 kPa, while the redundant transmitter reads 620 kPa. The discrepancy alarm has recurred twice in 30 minutes. No leak is confirmed; the field device has not been inspected.", question:"Which queue should receive this event first?", outputs:["Routine maintenance planning: −0.695", "Operations team for prompt assessment: 0.748", "Close without review: −0.382"]},
-      "vendor": {kind:"CHOICE · LOCAL CPU RECORDING", status:"INFERRED · NOT VALIDATED", title:"Vendor payment change", context:"Fictional accounts-payable case: an existing vendor emails a request to change its bank account one day before a CAD 48,000 invoice is due. The request has not been verified using the vendor contact already on file.", question:"What should happen before the payment details are changed?", outputs:["Verify through the existing trusted vendor contact: 2.781", "Update the account immediately: −2.114", "Pay to the new account without review: −2.346"]},
-      "support": {kind:"CHOICE · LOCAL CPU RECORDING", status:"INFERRED · NOT VALIDATED", title:"Duplicate billing ticket", context:"Fictional U.S. customer support ticket: a business customer reports invoices show duplicate charges after renewing a subscription. No payment-card information is included and no outage is reported.", question:"Which team should review this ticket first?", outputs:["Billing support: 3.591", "Security incident response: −1.226", "Close the ticket: −0.551"]},
-      "noul-lamp": {kind:"NOUL · FIXED REFERENCE", status:"CASE PASS", title:"Lamp status", context:"The lamp is on.", question:"Is the lamp on?", outputs:["No: 0.000", "Yes: 5.501"]},
-      "noul-rain": {kind:"NOUL · FIXED REFERENCE", status:"CASE PASS", title:"Rain check", context:"The pavement is dry and the sky is clear.", question:"Is it raining?", outputs:["No: 0.000", "Yes: −2.940"]},
-      "choice-signin": {kind:"CHOICE · FIXED REFERENCE", status:"CASE PASS", title:"Sign-in support", context:"A user cannot sign in after a password reset.", question:"What should support do first?", outputs:["Investigate: 2.798", "Close the ticket: −1.208"]},
-      "choice-data-loss": {kind:"CHOICE · FIXED REFERENCE", status:"CASE PASS", title:"Database recovery", context:"A database migration deleted customer records.", question:"What is the safest next step?", outputs:["Stop writes and restore from a verified backup: 2.263", "Ignore the alert: −0.344"]},
-      "score-typo": {kind:"SCORE · FIXED REFERENCE", status:"CASE PASS", title:"Cosmetic typo", context:"One cosmetic typo is visible.", question:"How severe is this issue?", outputs:["Low: 1.376", "Medium: 1.036", "High: 1.826"]},
-      "score-outage": {kind:"SCORE · FIXED REFERENCE", status:"CASE FAIL", title:"Service outage", context:"All users are unable to access the service.", question:"How severe is this issue?", outputs:["Low: −0.815", "Medium: −1.560", "High: 0.715"]},
-      "routing-current-example": {kind:"CHOICE · NO REFERENCE", status:"INFERRED · NOT VALIDATED", title:"Enterprise task routing", context:"A production deployment is failing after a database migration. Customers cannot complete payments. The change affects a shared authentication interface, and the first attempted fix did not work.", question:"Which model tier should handle this task?", outputs:["T1 routine: −1.641", "T2 standard: −2.180", "T3 high-risk: 0.092"]},
-      "alberta-energy-current-example": {kind:"CHOICE · NO REFERENCE", status:"INFERRED · NOT VALIDATED", title:"Alberta energy sensor triage", context:"An Alberta energy operator reports a recurring pressure sensor fault at a remote facility. The alarm appeared twice today, the latest reading is inconsistent, and no technician has inspected the equipment. There is no confirmed leak.", question:"Which work queue should review this report first?", outputs:["Routine maintenance planning: −0.313", "Operations team for prompt assessment: 1.043", "Close without review: −0.881"]},
-      "alberta-energy-score": {kind:"SCORE · NO REFERENCE", status:"INFERRED · NOT VALIDATED", title:"Alberta energy urgency", context:"An Alberta facility reports an intermittent pressure sensor fault. There is no confirmed leak, but the reading differs from expected values and requires operator review.", question:"How urgently should the report be assessed?", outputs:["Routine review: −0.272", "Prompt operations assessment: 0.519", "Immediate emergency response: −0.396"]}
+  "scada": {
+    "kind": "CHOICE · LOCAL CPU RECORDING",
+    "status": "INFERRED · NOT VALIDATED",
+    "title": "Grande Prairie Mainline incident",
+    "summary": "Alberta pipeline · control room incident",
+    "why": "The source describes an actual rupture and the control centre response. This retrospective prompt asks where a report would be reviewed; it does not reconstruct the original control room decision.",
+    "context": "On April 16, 2024, near Edson, Alberta, the Calgary control centre observed a drop in Emerson Creek compressor station discharge pressure at 10:48. At 10:50, a station operator reported an explosion and fire and suspected a rupture of the Grande Prairie Mainline. The Transportation Safety Board reports that the controller decided to shut down and isolate the suspected ruptured section.",
+    "question": "Which operational team should review this incident report?",
+    "source": "Transportation Safety Board of Canada · investigation P24H0018",
+    "url": "https://www.tsb.gc.ca/eng/rapports-reports/pipeline/2024/p24h0018/p24h0018.html",
+    "outputs": [
+      "Pipeline control and emergency response: 1.048",
+      "Pipeline integrity engineering: −0.723",
+      "Instrumentation maintenance: −1.342"
+    ]
+  },
+  "vendor": {
+    "kind": "CHOICE · LOCAL CPU RECORDING",
+    "status": "INFERRED · NOT VALIDATED",
+    "title": "Equipment supplier payment fraud",
+    "summary": "U.S. finance · payment diversion",
+    "why": "The source describes a completed fraud, not a pending payment. The prompt tests retrospective routing to a financial review; the recorded model output did not prevent or investigate the fraud.",
+    "context": "In April 2022, a U.S. company that regularly purchased equipment from a business partner received an email requesting a change in payment information. According to the U.S. Department of Justice, the sender was a fraudster posing as the partner, and the company wired $2,462,000 to the identified account.",
+    "question": "Which review should receive this incident report?",
+    "source": "U.S. Department of Justice · October 31, 2023",
+    "url": "https://www.justice.gov/usao-mdfl/pr/united-states-recovers-24-million-obtained-business-email-compromise",
+    "outputs": [
+      "Accounts payable and fraud investigation: 3.928",
+      "Vendor account maintenance: −1.907",
+      "Procurement and supplier management: 2.079"
+    ]
+  },
+  "support": {
+    "kind": "CHOICE · LOCAL CPU RECORDING",
+    "status": "INFERRED · NOT VALIDATED",
+    "title": "Firebase authentication incident",
+    "summary": "Cloud support · authentication incident",
+    "why": "The source is a provider service-health update. The prompt asks which support team should investigate similar reports; it is not a customer ticket or a record of an actual Qev deployment.",
+    "context": "On May 3, 2024, Google Cloud reported Firebase Authentication and Identity Platform authentication failures affecting some customers. Its engineering team identified a mitigation strategy and was implementing it. The service health update reported that the issue was resolved for affected users by 15:27 Pacific time.",
+    "question": "Which support team should investigate reports matching this incident?",
+    "source": "Google Cloud Service Health · May 3, 2024",
+    "url": "https://status.cloud.google.com/incidents/rErZ4r752o4rt4qaotfL",
+    "outputs": [
+      "Identity and authentication incident support: 1.526",
+      "Application support: −1.302",
+      "Cloud network operations: −1.277"
+    ]
+  }
+};
+    const caseFacts = {
+      scada: [['10:48', 'Pressure falling'], ['10:50', 'Fire reported'], ['10:52', 'Compressors shut down']],
+      vendor: [['APR 2022', 'Payment request'], ['$2.462M', 'Amount wired'], ['U.S. DOJ', 'Public case report']],
+      support: [['MAY 3, 2024', 'Service incident'], ['AUTH', 'Affected service'], ['15:27 PT', 'Resolved for affected users']]
     };
     const tabs = [...document.querySelectorAll('[role="tab"]')];
     function activate(tab, focus=false) { tabs.forEach(item => { const selected=item===tab; item.setAttribute('aria-selected', selected); item.tabIndex=selected?0:-1; document.getElementById(item.getAttribute('aria-controls')).hidden=!selected; }); if(focus) tab.focus(); }
     tabs.forEach((tab,index) => { tab.addEventListener('click',()=>activate(tab)); tab.addEventListener('keydown',event=>{let next=index; if(event.key==='ArrowRight') next=(index+1)%tabs.length; else if(event.key==='ArrowLeft') next=(index+tabs.length-1)%tabs.length; else if(event.key==='Home') next=0; else if(event.key==='End') next=tabs.length-1; else return; event.preventDefault(); activate(tabs[next],true);}); });
     const select=document.getElementById('record-select');
-    function showRecord(id) { const r=records[id]; document.getElementById('scada-panel').hidden=id!=='scada'; document.getElementById('vendor-panel').hidden=id!=='vendor'; document.getElementById('support-panel').hidden=id!=='support'; document.getElementById('record-kind').textContent=r.kind; const status=document.getElementById('record-status'); status.textContent=r.status; status.className=r.status==='CASE PASS'?'status-pass':r.status==='CASE FAIL'?'status-fail':'status-neutral'; document.getElementById('record-title').textContent=r.title; document.getElementById('record-context').textContent=r.context; document.getElementById('record-question').textContent=r.question; const output=document.getElementById('record-output'); output.replaceChildren(...r.outputs.map((line,index)=>{const row=document.createElement('div'); row.className='output-row'; const number=document.createElement('span'); number.textContent=String(index+1).padStart(2,'0'); const value=document.createElement('strong'); value.textContent=line; row.append(number,value); return row;})); }
+    function showRecord(id) { const r=records[id]; document.getElementById('record-kind').textContent=r.kind; document.getElementById('record-status').textContent=r.status; document.getElementById('record-title').textContent=r.title; document.getElementById('record-summary').textContent=r.summary; document.getElementById('record-facts').replaceChildren(...caseFacts[id].map(([value,label])=>{const el=document.createElement('div');const strong=document.createElement('b');const small=document.createElement('small');strong.textContent=value;small.textContent=label;el.append(strong,small);return el;})); document.getElementById('record-why').textContent=r.why; document.getElementById('record-context').textContent=r.context; const source=document.getElementById('record-source'); source.textContent=r.source+' ↗'; source.href=r.url; document.getElementById('record-question').textContent=r.question; const output=document.getElementById('record-output'); output.replaceChildren(...r.outputs.map((line,index)=>{const row=document.createElement('div'); row.className='output-row'; const number=document.createElement('span'); number.textContent=String(index+1).padStart(2,'0'); const value=document.createElement('strong'); value.textContent=line; row.append(number,value); return row;})); }
     select.addEventListener('change',()=>showRecord(select.value)); showRecord(select.value);
   </script>
 </body>

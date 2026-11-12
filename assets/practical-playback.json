@@ -1,5 +1,5 @@
 {
-  "description": "Fictional scenarios; actual local CPU model outputs, not validated decisions.",
+  "description": "Retrospective questions on public reports; actual local CPU model outputs, not validated decisions.",
   "recorded_date": "2026-11-12",
   "runtime": "ONNX Runtime 1.26.0 CPUExecutionProvider; two threads; graph optimizations disabled",
   "tokenizer_revision": "2fc06364715b967f1860aea9cf38778875588b17",
@@ -22,61 +22,76 @@
       "sha256": "24375b3c4ceac14cb5a66efa63545eae9ca0f37a6b57ea7a713797784249771b"
     }
   },
-  "capture_script_sha256": "8303d8af38623dd60ab4438ed73df13ddb3764e3aac5b0b54d641760e5deced1",
+  "capture_script_sha256": "ff0d1a9453365d37a64b24b67c96562cca3b3fc3701ba186dae1b93fb6bdce0d",
   "cases": [
     {
       "case": {
         "id": "scada",
-        "state": "Fictional SCADA event, 07:42 MDT: Station AB-17, pump P-204. Discharge pressure transmitter PT-204 reads 410 kPa, while the redundant transmitter reads 620 kPa. The discrepancy alarm has recurred twice in 30 minutes. No leak is confirmed; the field device has not been inspected.",
-        "question": "Which queue should receive this event first?",
+        "state": "On April 16, 2024, near Edson, Alberta, the Calgary control centre observed a drop in Emerson Creek compressor station discharge pressure at 10:48. At 10:50, a station operator reported an explosion and fire and suspected a rupture of the Grande Prairie Mainline. The Transportation Safety Board reports that the controller decided to shut down and isolate the suspected ruptured section.",
+        "question": "Which operational team should review this incident report?",
         "kind": "choice",
         "options": [
-          "Routine maintenance planning",
-          "Operations team for prompt assessment",
-          "Close without review"
+          "Pipeline control and emergency response",
+          "Pipeline integrity engineering",
+          "Instrumentation maintenance"
         ]
       },
       "logits": [
-        -0.6954275369644165,
-        0.7484146356582642,
-        -0.3815878927707672
-      ]
+        1.0478862524032593,
+        -0.72270667552948,
+        -1.3417274951934814
+      ],
+      "source": {
+        "title": "Transportation Safety Board of Canada · investigation P24H0018",
+        "url": "https://www.tsb.gc.ca/eng/rapports-reports/pipeline/2024/p24h0018/p24h0018.html",
+        "note": "The source describes an actual rupture and the control centre response. This retrospective prompt asks where a report would be reviewed; it does not reconstruct the original control room decision."
+      }
     },
     {
       "case": {
         "id": "vendor",
-        "state": "Fictional accounts-payable case: an existing vendor emails a request to change its bank account one day before a CAD 48,000 invoice is due. The request has not been verified using the vendor contact already on file.",
-        "question": "What should happen before the payment details are changed?",
+        "state": "In April 2022, a U.S. company that regularly purchased equipment from a business partner received an email requesting a change in payment information. According to the U.S. Department of Justice, the sender was a fraudster posing as the partner, and the company wired $2,462,000 to the identified account.",
+        "question": "Which review should receive this incident report?",
         "kind": "choice",
         "options": [
-          "Verify through the existing trusted vendor contact",
-          "Update the account immediately",
-          "Pay to the new account without review"
+          "Accounts payable and fraud investigation",
+          "Vendor account maintenance",
+          "Procurement and supplier management"
         ]
       },
       "logits": [
-        2.781008243560791,
-        -2.114466428756714,
-        -2.3458380699157715
-      ]
+        3.9277679920196533,
+        -1.906991720199585,
+        2.0788276195526123
+      ],
+      "source": {
+        "title": "U.S. Department of Justice · October 31, 2023",
+        "url": "https://www.justice.gov/usao-mdfl/pr/united-states-recovers-24-million-obtained-business-email-compromise",
+        "note": "The source describes a completed fraud, not a pending payment. The prompt tests retrospective routing to a financial review; the recorded model output did not prevent or investigate the fraud."
+      }
     },
     {
       "case": {
         "id": "support",
-        "state": "Fictional U.S. customer support ticket: a business customer reports invoices show duplicate charges after renewing a subscription. No payment-card information is included and no outage is reported.",
-        "question": "Which team should review this ticket first?",
+        "state": "On May 3, 2024, Google Cloud reported Firebase Authentication and Identity Platform authentication failures affecting some customers. Its engineering team identified a mitigation strategy and was implementing it. The service health update reported that the issue was resolved for affected users by 15:27 Pacific time.",
+        "question": "Which support team should investigate reports matching this incident?",
         "kind": "choice",
         "options": [
-          "Billing support",
-          "Security incident response",
-          "Close the ticket"
+          "Identity and authentication incident support",
+          "Application support",
+          "Cloud network operations"
         ]
       },
       "logits": [
-        3.590681791305542,
-        -1.225987434387207,
-        -0.5513522624969482
-      ]
+        1.5260074138641357,
+        -1.3022137880325317,
+        -1.2770092487335205
+      ],
+      "source": {
+        "title": "Google Cloud Service Health · May 3, 2024",
+        "url": "https://status.cloud.google.com/incidents/rErZ4r752o4rt4qaotfL",
+        "note": "The source is a provider service-health update. The prompt asks which support team should investigate similar reports; it is not a customer ticket or a record of an actual Qev deployment."
+      }
     }
   ]
 }
