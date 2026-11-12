@@ -58,8 +58,37 @@
       </section>
 
       <section id="panel-local" class="panel" role="tabpanel" aria-labelledby="tab-local" tabindex="0" hidden>
-        <div class="panel-intro"><div><p class="eyebrow">SELF-HOSTED PATH</p><h3>Bring the model to your workload</h3></div><p>Reproducible evaluation before deployment.</p></div>
-        <div class="local-grid"><div><h4>Run on your machine</h4><ol><li>Install Python and the local dependencies.</li><li>Prepare authorized Qev checkpoint files and the matching Qwen base.</li><li>Start the local playground and open it on your machine.</li></ol><a class="setup-link" href="https://github.com/ba-research/ba-research.github.io/tree/main/local" target="_blank" rel="noopener">Open local setup instructions ↗</a></div><aside class="availability"><span class="availability-dot"></span><strong>Browser download unavailable</strong><p>This site does not yet download model weights or run inference. Local use requires authorized model files and a configured environment.</p></aside></div>
+        <div class="panel-intro"><div><p class="eyebrow">SELF-HOSTED PATH</p><h3>Run Qev on your machine</h3></div><p>Choose your system · copy the commands</p></div>
+        <p class="local-lead">You need Git, Python, an authorized Qev checkpoint and its matching Qwen base. The checkpoint folder must contain <code>model.json</code>, <code>temperature.json</code>, <code>head.pt</code> and the <code>adapter</code> folder. Model files are not supplied here. Setup downloads dependencies; inference uses local files.</p>
+        <label class="select-label" for="local-platform">YOUR OPERATING SYSTEM</label><select id="local-platform"><option value="mac">macOS · Terminal</option><option value="windows">Windows · PowerShell</option><option value="linux">Linux · Bash</option></select>
+<div class="platform-panel" data-platform="mac"><div class="platform-command"><div class="command-head"><strong>1 · Set up</strong><button class="copy-command" type="button" data-copy="mac-setup">Copy command</button></div><pre><code>git clone https://github.com/ba-research/ba-research.github.io.git
+cd ba-research.github.io
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r local/requirements.txt</code></pre><textarea class="copy-source" id="mac-setup" readonly aria-label="mac setup command">git clone https://github.com/ba-research/ba-research.github.io.git
+cd ba-research.github.io
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r local/requirements.txt</textarea></div><p class="local-copy"><strong>2 · Set your base path.</strong> Copy the entire checkpoint folder. In the copy’s <code>model.json</code>, set <code>model_id</code> to the absolute path of the matching local Qwen base. Keep its other fields and files intact.</p><div class="platform-command"><div class="command-head"><strong>3 · Start Qev</strong><button class="copy-command" type="button" data-copy="mac-run">Copy command</button></div><pre><code>python local/try_qev.py --checkpoint &quot;/absolute/path/to/YOUR_CHECKPOINT_COPY&quot;</code></pre><textarea class="copy-source" id="mac-run" readonly aria-label="mac run command">python local/try_qev.py --checkpoint &quot;/absolute/path/to/YOUR_CHECKPOINT_COPY&quot;</textarea></div></div><div class="platform-panel" data-platform="windows" hidden><div class="platform-command"><div class="command-head"><strong>1 · Set up</strong><button class="copy-command" type="button" data-copy="windows-setup">Copy command</button></div><pre><code>git clone https://github.com/ba-research/ba-research.github.io.git
+cd ba-research.github.io
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r local/requirements.txt</code></pre><textarea class="copy-source" id="windows-setup" readonly aria-label="windows setup command">git clone https://github.com/ba-research/ba-research.github.io.git
+cd ba-research.github.io
+py -3 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r local/requirements.txt</textarea></div><p class="local-copy"><strong>2 · Set your base path.</strong> Copy the entire checkpoint folder. In the copy’s <code>model.json</code>, set <code>model_id</code> to the absolute path of the matching local Qwen base. Keep its other fields and files intact.</p><div class="platform-command"><div class="command-head"><strong>3 · Start Qev</strong><button class="copy-command" type="button" data-copy="windows-run">Copy command</button></div><pre><code>python local/try_qev.py --checkpoint &quot;C:\REPLACE\WITH\YOUR_CHECKPOINT_COPY&quot;</code></pre><textarea class="copy-source" id="windows-run" readonly aria-label="windows run command">python local/try_qev.py --checkpoint &quot;C:\REPLACE\WITH\YOUR_CHECKPOINT_COPY&quot;</textarea></div></div><div class="platform-panel" data-platform="linux" hidden><div class="platform-command"><div class="command-head"><strong>1 · Set up</strong><button class="copy-command" type="button" data-copy="linux-setup">Copy command</button></div><pre><code>git clone https://github.com/ba-research/ba-research.github.io.git
+cd ba-research.github.io
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r local/requirements.txt</code></pre><textarea class="copy-source" id="linux-setup" readonly aria-label="linux setup command">git clone https://github.com/ba-research/ba-research.github.io.git
+cd ba-research.github.io
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r local/requirements.txt</textarea></div><p class="local-copy"><strong>2 · Set your base path.</strong> Copy the entire checkpoint folder. In the copy’s <code>model.json</code>, set <code>model_id</code> to the absolute path of the matching local Qwen base. Keep its other fields and files intact.</p><div class="platform-command"><div class="command-head"><strong>3 · Start Qev</strong><button class="copy-command" type="button" data-copy="linux-run">Copy command</button></div><pre><code>python local/try_qev.py --checkpoint &quot;/absolute/path/to/YOUR_CHECKPOINT_COPY&quot;</code></pre><textarea class="copy-source" id="linux-run" readonly aria-label="linux run command">python local/try_qev.py --checkpoint &quot;/absolute/path/to/YOUR_CHECKPOINT_COPY&quot;</textarea></div></div>
+        <p class="command-note">Replace the checkpoint path with the copied folder before running. Keep the terminal open and visit <a href="http://127.0.0.1:7861">127.0.0.1:7861</a> on the same machine. If you already cloned the repository, skip the first two setup lines. Results are experimental and require human review.</p>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        <script>(()=>{const status=document.getElementById('copy-status'), select=document.getElementById('local-platform');select.addEventListener('change',()=>{document.querySelectorAll('.platform-panel').forEach(panel=>panel.hidden=panel.dataset.platform!==select.value);status.textContent='';});document.querySelectorAll('.copy-command').forEach(button=>button.addEventListener('click',async()=>{const source=document.getElementById(button.dataset.copy);try{await navigator.clipboard.writeText(source.value);status.textContent='Copied. Replace any placeholder paths before running.';}catch{source.focus();source.select();status.textContent='Automatic copy unavailable. Use your device’s Copy command for the selected text.';}}));})();</script>
       </section>
 
       <section id="panel-colab" class="panel" role="tabpanel" aria-labelledby="tab-colab" tabindex="0" hidden>

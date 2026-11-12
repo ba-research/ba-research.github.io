@@ -17,21 +17,9 @@ from jev.api import compile_request, format_response
 from jev.model import DecisionModel
 
 SCENARIOS = {
-    "Energy: maintenance triage": (
-        "An Alberta operator reports an intermittent pressure sensor fault at a remote facility. The latest reading is inconsistent and a technician has not inspected it. No leak is confirmed.",
-        "Which queue should review this report?",
-        "Routine maintenance planning\nOperations team for prompt assessment\nClose without review",
-    ),
-    "Customer support: duplicate charge": (
-        "A US customer reports two charges for one subscription renewal. Both transaction references are available and no refund has been confirmed.",
-        "Which team should review this request?",
-        "Billing and payments\nTechnical support\nSales",
-    ),
-    "AI routing: production incident": (
-        "A database migration caused payment failures across a production service. An initial fix did not work and multiple interfaces are involved.",
-        "Which task tier should be considered?",
-        "Routine scoped task\nStandard implementation and debugging\nComplex cross-system investigation",
-    ),
+    'Alberta pipeline: incident review': ('On April 16, 2024, near Edson, Alberta, the Calgary control centre observed a drop in Emerson Creek compressor station discharge pressure at 10:48. At 10:50, a station operator reported an explosion and fire and suspected a rupture of the Grande Prairie Mainline. The Transportation Safety Board reports that the controller decided to shut down and isolate the suspected ruptured section.', 'Which operational team should review this incident report?', 'Pipeline control and emergency response\nPipeline integrity engineering\nInstrumentation maintenance', 'Source: [Transportation Safety Board of Canada · investigation P24H0018](https://www.tsb.gc.ca/eng/rapports-reports/pipeline/2024/p24h0018/p24h0018.html) · Retrospective research question; Qev was not used in the incident.'),
+    'U.S. payment diversion: financial review': ('In April 2022, a U.S. company that regularly purchased equipment from a business partner received an email requesting a change in payment information. According to the U.S. Department of Justice, the sender was a fraudster posing as the partner, and the company wired $2,462,000 to the identified account.', 'Which review should receive this incident report?', 'Accounts payable and fraud investigation\nVendor account maintenance\nProcurement and supplier management', 'Source: [U.S. Department of Justice · October 31, 2023](https://www.justice.gov/usao-mdfl/pr/united-states-recovers-24-million-obtained-business-email-compromise) · Retrospective research question; Qev was not used in the incident.'),
+    'Cloud authentication: support routing': ('On May 3, 2024, Google Cloud reported Firebase Authentication and Identity Platform authentication failures affecting some customers. Its engineering team identified a mitigation strategy and was implementing it. The service health update reported that the issue was resolved for affected users by 15:27 Pacific time.', 'Which support team should investigate reports matching this incident?', 'Identity and authentication incident support\nApplication support\nCloud network operations', 'Source: [Google Cloud Service Health · May 3, 2024](https://status.cloud.google.com/incidents/rErZ4r752o4rt4qaotfL) · Retrospective research question; Qev was not used in the incident.'),
 }
 
 
@@ -70,14 +58,15 @@ def main():
     root, temperature = checkpoint_info(args.checkpoint)
     print("Loading local checkpoint; the first run can take several minutes.", flush=True)
     model = DecisionModel.load(str(root), device=args.device)
-    first = SCENARIOS["Energy: maintenance triage"]
+    first = SCENARIOS["Alberta pipeline: incident review"]
     with gr.Blocks(title="Try Qev locally") as demo:
-        gr.Markdown("# Try Qev locally\nExperimental decisions from BA Research. Inference uses your local files. Examples are fictional; do not use results for safety-critical action without qualified review.")
-        example = gr.Dropdown(list(SCENARIOS), value="Energy: maintenance triage", label="Load a scenario")
+        gr.Markdown("# Try Qev locally\nExperimental decisions from BA Research. Inference uses your local files. Examples summarize public reports; questions are retrospective research prompts. Do not use results for safety-critical action without qualified review.")
+        example = gr.Dropdown(list(SCENARIOS), value="Alberta pipeline: incident review", label="Load a scenario")
         state = gr.Textbox(value=first[0], label="Context", lines=4)
         question = gr.Textbox(value=first[1], label="Question")
         options = gr.Textbox(value=first[2], label="Choices, one per line", lines=4)
-        example.change(lambda key: SCENARIOS[key], example, [state, question, options])
+        source = gr.Markdown(value=first[3])
+        example.change(lambda key: SCENARIOS[key], example, [state, question, options, source])
         button = gr.Button("Make a decision", variant="primary")
         result = gr.JSON(label="Decision")
         button.click(lambda s, q, o: decide(model, temperature, s, q, o), [state, question, options], result, concurrency_limit=1)
