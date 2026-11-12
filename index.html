@@ -1,24 +1,82 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BA Research is an independent AI research lab in Calgary building efficient decision models for edge and self-hosted systems.">
-  <meta name="theme-color" content="#123c2b"><title>BA Research — Intelligence, closer to work.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Qev, an experimental structured decision model from BA Research.">
+  <meta name="theme-color" content="#f5f5f0">
+  <title>Qev Decision Playground — BA Research</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="nav-wrap"><nav class="nav" aria-label="Main navigation">
-  <a class="brand" href="#top"><img src="assets/ba-research-mark.png" alt="BA Research" width="65" height="65"><span>BA <b>Research</b><small>CALGARY, ALBERTA</small></span></a>
-  <div class="nav-links"><a href="#work">Our work</a><a href="#applications">Applications</a><a class="nav-action" href="#try">Try Qev <span>↓</span></a></div>
-</nav></header>
-<main id="top">
-  <section class="try-section" id="try" aria-labelledby="try-title"><div class="wrap"><div class="try-heading"><div><p class="eyebrow">START HERE · EXPERIMENTAL</p><h2 id="try-title">Try <em>Qev.</em></h2><p>Explore a decision-model workflow with practical examples. Choose how you want to get started:</p></div><div class="demo-status"><span class="status-dot"></span><span><strong>Browser demo coming soon</strong><small>Instant browser inference is not available yet.</small></span></div></div><div class="try-grid"><a class="try-card" href="https://github.com/ba-research/ba-research.github.io/tree/main/local"><span class="try-card-top">01 / YOUR MACHINE <b>↗</b></span><strong>Run Qev locally</strong><span>Follow setup instructions for local inference after you obtain the required approved model files.</span><span class="try-card-link">Open local setup <b>↗</b></span></a><a class="try-card" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb"><span class="try-card-top">02 / NOTEBOOK <b>↗</b></span><strong>Explore the Colab template</strong><span>Work through fictional energy and enterprise decision examples. A provisioned runtime and files are needed for inference.</span><span class="try-card-link">Open Colab template <b>↗</b></span></a><a class="try-card" href="https://huggingface.co/ba-research"><span class="try-card-top">03 / MODEL CARDS <b>↗</b></span><strong>Review Qev models</strong><span>Inspect model versions, artifacts, limitations, and usage information before evaluation.</span><span class="try-card-link">View model cards <b>↗</b></span></a></div><p class="try-disclaimer">Qev is experimental. No browser inference is offered here; model files are not hosted by this site. Validate outputs independently and keep qualified people responsible for consequential decisions.</p></div></section>
-  <section class="hero wrap"><div class="hero-copy"><div class="eyebrow"><span></span> INDEPENDENT AI RESEARCH · CALGARY</div><h1>Intelligence,<br><em>closer to work.</em></h1><p class="lead">Practical decision models for the places work happens — on your infrastructure, at the edge, and wherever data needs to stay close.</p><div class="actions"><a class="button primary" href="#try">Try Qev <span>↓</span></a><a class="button text" href="#applications">See applications <span>↓</span></a></div><div class="hero-note"><span>01 / OUR FOCUS</span> Efficient models for real-world decisions.</div></div>
-  <div class="hero-art" aria-label="A diagram of a decision routed to the right resource"><div class="art-top"><span>BA RESEARCH</span><span>DECISION SYSTEMS / 01</span></div><div class="art-grid"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="path path-one"></div><div class="path path-two"></div><div class="path path-three"></div><div class="node input"><small>INPUT</small><strong>Context</strong></div><div class="node core"><small>DECISION</small><strong>Qev</strong><span>●</span></div><div class="node out a"><small>01</small> Local</div><div class="node out b"><small>02</small> Review</div><div class="node out c"><small>03</small> Route</div></div><div class="art-bottom"><span>SMALL MODEL. CLEAR DECISION.</span><span>51.0447° N</span></div></div></section>
-  <section id="work" class="principles"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">THE IDEA</p><h2>Build for where<br><em>decisions happen.</em></h2></div><p>Not every task needs a frontier model. We explore smaller, specialized models and clear interfaces that can fit into real workflows.</p></div><div class="principle-grid"><article><span class="number">01</span><h3>Efficient by design</h3><p>Explore smaller models for classification, routing, and other bounded decisions where response cost and latency matter.</p></article><article><span class="number">02</span><h3>Deploy on your terms</h3><p>Research for self-hosted and edge environments, with room to combine local models and cloud providers when useful.</p></article><article><span class="number">03</span><h3>Built for evaluation</h3><p>Structured outputs are easier to inspect, test, and integrate. Validate each model against your own data and operating limits.</p></article></div></div></section>
-  <section class="model-section wrap"><div class="model-intro"><p class="eyebrow">MEET QEV <span> / 01</span></p><h2>A model made<br>to <em>decide.</em></h2><p>Qev is our experimental Qwen-based decision model family. Give it a focused question, context, and options; its intended role is to return a structured result for a workflow.</p><div class="tags"><span>CHOICE</span><span>YES / NO</span><span>SCORE</span></div><a class="button primary" href="https://huggingface.co/ba-research/Qev1.0-Qwen3.5-0.8B">Explore the 0.8B model card <span>↗</span></a></div>
-  <div class="decision-card"><div class="card-top"><div><span class="dot"></span> DECISION EXAMPLE</div><span>ILLUSTRATIVE INPUT</span></div><div class="decision-body"><p class="field-title">CONTEXT</p><p class="context">A remote facility reports an intermittent pressure sensor fault. The reading differs from expected values; no leak has been confirmed and the equipment has not yet been inspected.</p><p class="field-title">QUESTION</p><h3>Which team should review the report first?</h3><div class="option"><span>01</span> Routine maintenance planning</div><div class="option featured"><span>02</span> Operations team for assessment <b>→</b></div><div class="option"><span>03</span> Close without review</div><p class="example-note">Illustrative workflow, not a model prediction or operational procedure. Safety decisions require qualified human review.</p></div></div></section>
-  <section class="use-cases" id="applications"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">IN PRACTICE</p><h2>Designed around<br><em>real work.</em></h2></div><p>Starting points for pilots. These examples describe potential applications, not validated performance claims.</p></div><div class="case-grid"><article><div class="case-top"><span>01 / ENERGY</span><span>↗</span></div><h3>Operations &amp;<br>maintenance</h3><p>Classify incoming work reports, route maintenance requests, and flag ambiguous information for review across distributed facilities.</p><div class="case-foot">ALBERTA · OIL &amp; GAS</div></article><article><div class="case-top"><span>02 / SERVICE</span><span>↗</span></div><h3>Customer<br>operations</h3><p>Sort billing, account and technical requests so teams can direct work to the right queue with consistent criteria.</p><div class="case-foot">SUPPORT · BUSINESS SERVICES</div></article><article><div class="case-top"><span>03 / SYSTEMS</span><span>↗</span></div><h3>AI task<br>routing</h3><p>Use a decision model to help route well-defined tasks across local and cloud models, subject to testing and safeguards.</p><div class="case-foot">GATEWAYS · AUTOMATION</div></article></div></div></section>
-  <section class="start wrap"><div><p class="eyebrow">START EXPLORING</p><h2>From research<br><em>to your workflow.</em></h2><p>Explore the models, inspect the code, and evaluate privately on your own infrastructure. Model weights and dependencies must be obtained before disconnected operation.</p></div><div class="start-links"><a href="https://github.com/ba-research/ba-research.github.io/tree/main/local"><span><small>01 / YOUR MACHINE</small><strong>Run Qev locally</strong><em>Local inference after setup and model acquisition</em></span><b>↗</b></a><a href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb"><span><small>02 / NOTEBOOK</small><strong>Open the Colab template</strong><em>Cloud notebook; pre-provisioned files required</em></span><b>↗</b></a><a href="https://huggingface.co/ba-research"><span><small>03 / MODEL CARDS</small><strong>Explore Qev on Hugging Face</strong><em>Versions, limitations and artifacts</em></span><b>↗</b></a><a href="https://github.com/stancsz/shunt"><span><small>04 / GATEWAY</small><strong>Explore Shunt</strong><em>Local and cloud routing experiments</em></span><b>↗</b></a></div></section>
-</main><footer><div class="wrap footer-inner"><div class="footer-brand"><strong>BA Research<span>.</span></strong><p>Independent AI research from Calgary, Alberta.</p></div><div><span>EXPLORE</span><a href="https://huggingface.co/ba-research">Hugging Face ↗</a><a href="https://github.com/ba-research">GitHub ↗</a></div><div class="footer-small">© 2026 BA Research<br>Built for practical intelligence.</div></div></footer>
-</body></html>
+  <header class="topbar">
+    <a class="brand" href="#try" aria-label="BA Research home"><img src="assets/ba-research-mark.png" alt="" width="38" height="38"><span>BA Research <i>/</i> Qev</span></a>
+    <a class="colab top-link" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb" target="_blank" rel="noopener">Open in Colab <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="try">
+    <section class="intro">
+      <p class="kicker"><span></span> DECISION PLAYGROUND <span class="version">EXPERIMENTAL</span></p>
+      <h1>A question in.<br><em>A decision out.</em></h1>
+      <p class="lede">Shape a bounded decision for Qev. Try a sample scenario, then continue in the Colab notebook.</p>
+    </section>
+
+    <section class="workspace" aria-label="Qev decision playground">
+      <div class="editor">
+        <div class="editor-head"><span>01 <b>INPUT</b></span><label for="preset">LOAD AN EXAMPLE</label></div>
+        <select id="preset" aria-label="Load an example">
+          <option value="energy">Alberta energy · maintenance triage</option>
+          <option value="vendor">Enterprise · vendor payment</option>
+          <option value="document">General · document routing</option>
+        </select>
+
+        <label class="field-label" for="context">CONTEXT</label>
+        <textarea id="context" rows="4">An Alberta operator reports an intermittent pressure sensor fault at a remote facility. The latest reading is inconsistent and a technician has not inspected it. No leak is confirmed.</textarea>
+
+        <label class="field-label" for="question">QUESTION</label>
+        <input id="question" type="text" value="Which team should review this report first?">
+
+        <div class="field-label choices-label">DECISION TYPE <span>Choose the output shape</span></div>
+        <div class="types" role="group" aria-label="Decision type">
+          <button class="type active" type="button" aria-pressed="true">Choice</button>
+          <button class="type" type="button" aria-pressed="false">Score</button>
+          <button class="type" type="button" aria-pressed="false">Noul</button>
+        </div>
+        <div class="choice-list" aria-label="Candidate choices">
+          <div><span>01</span> Routine maintenance planning</div>
+          <div><span>02</span> Operations team assessment</div>
+          <div><span>03</span> Close without review</div>
+        </div>
+        <button class="run" type="button" disabled aria-describedby="run-status">Run decision <span>→</span></button>
+        <p class="run-status" id="run-status"><span class="status-dot"></span> Browser model unavailable — no inference is run here.</p>
+      </div>
+
+      <aside class="result" aria-label="Decision output status">
+        <div class="result-head"><span>02 <b>OUTPUT</b></span><span class="idle"><i></i> NOT RUN</span></div>
+        <div class="result-empty"><div class="bracket">{ }</div><h2>Your result<br>will appear here.</h2><p>This preview does not generate or predict an answer. Open the notebook to explore Qev with an appropriately provisioned runtime.</p>
+          <a class="colab primary" href="https://colab.research.google.com/github/ba-research/ba-research.github.io/blob/main/notebooks/ba_research_qev_enterprise_template.ipynb" target="_blank" rel="noopener">Open in Colab <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="result-foot"><span>MODEL</span><strong>Qev · browser runtime not configured</strong></div>
+      </aside>
+    </section>
+    <footer class="notes"><p><strong>Research prototype.</strong> Examples are fictional; outputs, when evaluated elsewhere, need independent validation and qualified human review. Do not use as the sole basis for consequential decisions.</p><a href="https://github.com/ba-research/ba-research.github.io/tree/main/local">Local setup <span aria-hidden="true">↗</span></a></footer>
+  </main>
+
+  <script>
+    const examples = {
+      energy: ["An Alberta operator reports an intermittent pressure sensor fault at a remote facility. The latest reading is inconsistent and a technician has not inspected it. No leak is confirmed.", "Which team should review this report first?", ["Routine maintenance planning", "Operations team assessment", "Close without review"]],
+      vendor: ["A fictional vendor invoice has a changed payment account and the requested payment date is today. The change has not been independently verified.", "What should happen before payment?", ["Process on schedule", "Verify the account change", "Cancel the vendor"]],
+      document: ["A fictional incoming document contains a general product question and no account details or urgent issue.", "Which queue should receive the document?", ["Product information", "Billing support", "Security response"]]
+    };
+    document.getElementById("preset").addEventListener("change", event => {
+      const [context, question, choices] = examples[event.target.value];
+      document.getElementById("context").value = context;
+      document.getElementById("question").value = question;
+      document.querySelectorAll(".choice-list div").forEach((row, i) => row.lastChild.textContent = ` ${choices[i]}`);
+    });
+    document.querySelectorAll(".type").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll(".type").forEach(item => { item.classList.toggle("active", item === button); item.setAttribute("aria-pressed", item === button); });
+    }));
+  </script>
+</body>
+</html>
