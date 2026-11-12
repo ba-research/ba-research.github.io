@@ -1,0 +1,8 @@
+gradio==5.49.1
+torch>=2.8
+transformers==5.10.2
+peft==0.19.1
+accelerate==1.13.0
+huggingface-hub>=1.33.0
+safetensors
+open-jev @ git+https://github.com/Zefan-Cai/Open-Jev.git@bd4118882f733574a3250a4b65fe4d884130c08b
